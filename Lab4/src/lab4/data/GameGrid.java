@@ -57,6 +57,8 @@ public class GameGrid extends Observable {
 	public boolean move(int x, int y, int player) {
 		if(gridArr[x][y] == EMPTY) {
 			gridArr[x][y] = player;
+			setChanged();
+			notifyObservers();
 			return true;
 		}else {
 			return false;
@@ -68,6 +70,8 @@ public class GameGrid extends Observable {
 	 */
 	public void clearGrid() {
 		this.gridArr = new int[getSize()][getSize()];
+		setChanged();
+		notifyObservers();
 	}
 
 	/**
