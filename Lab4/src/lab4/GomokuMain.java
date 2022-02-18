@@ -10,7 +10,7 @@ public class GomokuMain {
 		if(argv.length == 0) {			
 			argv[0] = "4000";
 		}else if(argv.length > 1) {
-			throw new ArrayIndexOutOfBoundsException("To many portnumbers!");//HEJ
+			throw new ArrayIndexOutOfBoundsException("To many portnumbers!");
 		}
 		
 		
