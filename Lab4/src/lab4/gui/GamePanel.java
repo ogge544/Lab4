@@ -5,10 +5,9 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.util.Observable;
 import java.util.Observer;
-
 import javax.swing.JPanel;
-
 import lab4.data.GameGrid;
+import lab4.data.GomokuGameState;
 
 /**
  * A panel providing a graphical view of the game board
