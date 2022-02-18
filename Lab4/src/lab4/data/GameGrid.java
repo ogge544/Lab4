@@ -6,6 +6,13 @@ import java.util.Arrays;
 /**
  * Represents the 2-d game grid
  */
+/**
+ * 
+ * @author albin
+ *
+ * Here we create the gamingboard it self.
+ *
+ */
 
 public class GameGrid extends Observable {
 
@@ -27,6 +34,7 @@ public class GameGrid extends Observable {
 	 * @return the value of the specified location
 	 */
 	public int getLocation(int x, int y) {
+		return gridArr[x][y];
 	}
 
 	/**
@@ -47,13 +55,19 @@ public class GameGrid extends Observable {
 	 * @return true if the insertion worked, false otherwise
 	 */
 	public boolean move(int x, int y, int player) {
+		if(gridArr[x][y] == EMPTY) {
+			gridArr[x][y] = player;
+			return true;
+		}else {
+			return false;
+		}
 	}
 
 	/**
 	 * Clears the grid of pieces
 	 */
 	public void clearGrid() {
-		
+		this.gridArr = new int[getSize()][getSize()];
 	}
 
 	/**
