@@ -2,6 +2,11 @@ package lab4.gui;
 import java.util.Observable;
 import java.util.Observer;
 
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
 import lab4.client.GomokuClient;
 import lab4.data.GameGrid;
 import lab4.data.GomokuGameState;
@@ -15,6 +20,17 @@ public class GomokuGUI implements Observer{
 	private GomokuClient client;
 	private GomokuGameState gamestate;
 	
+	
+	private JFrame frame;
+	private JPanel panel;
+	private JLabel messageLabel;
+	private JButton newGameButton;
+	private JButton connectButton;
+	private JButton disconnectButton;
+	
+	private GamePanel gamePanelGrid;
+	
+	
 	/**
 	 * The constructor
 	 * 
@@ -26,6 +42,21 @@ public class GomokuGUI implements Observer{
 		this.gamestate = g;
 		client.addObserver(this);
 		gamestate.addObserver(this);
+		
+		JFrame frame = new JFrame();
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);		
+		//frame.setVisible(true);
+		
+		panel = new JPanel();
+		panel.add(gamePanelGrid);
+		
+		frame = new JFrame();
+		frame.pack();
+		frame.setSize(500,500);
+		frame.add(panel); 
+		frame.setVisible(true);
+		
+		gamePanelGrid = new GamePanel(gamestate.getGameGrid());
 		
 		
 	}

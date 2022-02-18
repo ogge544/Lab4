@@ -30,6 +30,7 @@ public class GamePanel extends JPanel implements Observer{
 		this.setMinimumSize(d);
 		this.setPreferredSize(d);
 		this.setBackground(Color.WHITE);
+		this.setVisible(true);
 	}
 
 	/**
@@ -40,7 +41,10 @@ public class GamePanel extends JPanel implements Observer{
 	 * @param y the y coordinates
 	 * @return an integer array containing the [x, y] grid position
 	 */
-	public int[] getGridPosition(int x, int y){}
+	public int[] getGridPosition(int x, int y){
+		int [] array = {x/UNIT_SIZE, y/UNIT_SIZE};
+		return array;
+	}
 	
 	public void update(Observable arg0, Object arg1) {
 		this.repaint();
@@ -52,3 +56,5 @@ public class GamePanel extends JPanel implements Observer{
 	}
 	
 }
+	
+	

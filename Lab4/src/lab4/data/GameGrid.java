@@ -93,7 +93,7 @@ public class GameGrid extends Observable {
 		for (int j = 0; j < getSize(); j++) {
 			int inARow = 0;
 			for (int i = 0; i < getSize(); i++) {
-				if (gridArr[i][j] == player) {
+				if (gridArr[i][j] == ME) {
 					inARow++;
 				} else {
 					inARow = 0;
@@ -112,7 +112,7 @@ public class GameGrid extends Observable {
 		for (int i = 0; i < getSize(); i++) {
 			int inARow = 0;
 			for (int j = 0; j < getSize(); j++) {
-				if (gridArr[i][j] == player) {
+				if (gridArr[i][j] == ME) {
 					inARow++;
 				} else {
 					inARow = 0;
@@ -136,7 +136,7 @@ public class GameGrid extends Observable {
 			int i = 0;
 			int inARow = 0;
 			while(i < INROW) {
-				if(gridArr[i][j] == player) {
+				if(gridArr[i][j] == ME) {
 					inARow++;
 				}else {
 					inARow = 0;
