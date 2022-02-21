@@ -18,7 +18,7 @@ public class GomokuMain {
  * @throws ArrayIndexOutOfBoundsException - If there is more that one port number, this error is thrown.
  */
 	
-	public static void main(String[] argv) throws ArrayIndexOutOfBoundsException {
+	public static void main(String[] argv){
 		
 		GomokuClient client;
 		
@@ -27,7 +27,7 @@ public class GomokuMain {
 		}else if(argv.length > 1) {
 			throw new ArrayIndexOutOfBoundsException("To many portnumbers!");
 		}else {
-			client = new GomokuClient(4000);
+			client = new GomokuClient(4050);
 		}
 		
 		

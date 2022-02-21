@@ -45,9 +45,9 @@ public class GomokuGUI implements Observer{
 		
 		JFrame frame = new JFrame();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);		
-		//frame.setVisible(true);
+		frame.setVisible(true);
 		
-		panel = new JPanel();
+		/*panel = new JPanel();
 		panel.add(gamePanelGrid);
 		
 		frame = new JFrame();
@@ -57,7 +57,7 @@ public class GomokuGUI implements Observer{
 		frame.setVisible(true);
 		
 		gamePanelGrid = new GamePanel(gamestate.getGameGrid());
-		
+		*/
 		
 	}
 	

@@ -10,7 +10,7 @@ import java.util.Arrays;
  * 
  * @author albin
  *
- * Here we create the gamingboard it self.
+ *         Here we create the gamingboard it self.
  *
  */
 
@@ -34,7 +34,7 @@ public class GameGrid extends Observable {
 	 * @return the value of the specified location
 	 */
 	public int getLocation(int x, int y) {
-		return gridArr[x][y];
+		return this.gridArr[x][y];
 	}
 
 	/**
@@ -43,7 +43,7 @@ public class GameGrid extends Observable {
 	 * @return the grid size
 	 */
 	public int getSize() {
-		return gridArr.length;
+		return this.gridArr.length;
 	}
 
 	/**
@@ -55,12 +55,12 @@ public class GameGrid extends Observable {
 	 * @return true if the insertion worked, false otherwise
 	 */
 	public boolean move(int x, int y, int player) {
-		if(gridArr[x][y] == EMPTY) {
+		if (gridArr[x][y] == EMPTY) {
 			gridArr[x][y] = player;
 			setChanged();
 			notifyObservers();
 			return true;
-		}else {
+		} else {
 			return false;
 		}
 	}
@@ -81,14 +81,14 @@ public class GameGrid extends Observable {
 	 * @return true if player has 5 in row, false otherwise
 	 */
 	public boolean isWinner(int player) {
-		if(vertical(player) || horizontal(player) || diagonal(player)) {
+		if (vertical(player) || horizontal(player) || diagonal(player)) {
 			return true;
-		}else {
+		} else {
 			return false;
 		}
 	}
 
-	//Checks if any column is full of the same player.
+	// Checks if any column is full of the same player.
 	private boolean vertical(int player) {
 		for (int j = 0; j < getSize(); j++) {
 			int inARow = 0;
@@ -126,29 +126,27 @@ public class GameGrid extends Observable {
 		return false;
 	}
 
-	
-
 	// Checks for five in a row in the diagonal direction!
 	private boolean diagonal(int player) {
-		//First checks which column is the last to be checked for a diagonal win.
-		int lastPosible = getSize() - INROW;
-		for(int j = 0; j <= lastPosible ; j++) {
-			int i = 0;
-			int inARow = 0;
-			while(i < INROW) {
-				if(gridArr[i][j] == ME) {
-					inARow++;
-				}else {
-					inARow = 0;
-				}
-				if(inARow == INROW) {
-					return true;
+		int inArow = 0;		
+		int lastSquareChecked = getSize() - INROW;
+		for (int i = 0; i <= lastSquareChecked; i++) {			
+			for (int j = 0; j <= lastSquareChecked; j++) {
+				if (gridArr[i][j] == ME) {
+					inArow++;
+					if (inArow == INROW) {
+						return true;
+					}
+					i = j + 1;
+				} else {
+					inArow = 0;
+					
 				}
 			}
-			
+
 		}
 
-		return false;
-	}
+		return true;
 
+	}
 }
